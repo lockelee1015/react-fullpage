@@ -148,10 +148,10 @@ const SectionsContainer = React.createClass({
     window.removeEventListener('DOMMouseScroll', this._mouseWheelHandler);
   },
   
-  _mouseWheelHandler() {
+  _mouseWheelHandler(ex) {
     this._removeMouseWheelEventHandlers();
     
-    let e             = window.event || e; // old IE support
+    let e             = window.event || ex; // old IE support
 	  let delta         = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
     let position      = this.state.sectionScrolledPosition + (delta * this.state.windowHeight);
     let activeSection = this.state.activeSection - delta;
